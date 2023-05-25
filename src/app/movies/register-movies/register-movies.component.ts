@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register-movies',
@@ -7,17 +7,37 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./register-movies.component.scss']
 })
 export class RegisterMoviesComponent implements OnInit{
-  options!: FormGroup;
+  register!: FormGroup;
 
   constructor(private fb: FormBuilder) { }
 
+  get f(){
+    return this.register.controls;
+  }
+
   ngOnInit() {
-
-    this.options = this.fb.group({
-      hideRequired: false,
-      floatLabel: 'auto',
+    this.register = this.fb.group({
+      title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(256)]],
+      pictureUrl: ['', [Validators.minLength(10)]],
+      releaseDate: ['', [Validators.required]],
+      description: [''],
+      rating: ['', [Validators.required, Validators.min(0), Validators.max(10)]],
+      imdbUrl: ['', [Validators.minLength(10)]],
+      genre: ['', [Validators.required]]
     });
+  }
 
+  save(): void{
+    this.register.markAllAsTouched;
+    if(this.register.invalid){
+      return;
+    }
+
+    alert('Sucesso!\n\n' + JSON.stringify(this.register.value, null, 4));
+  }
+
+  resetForm(): void{
+    this.register.reset;
   }
 
 }

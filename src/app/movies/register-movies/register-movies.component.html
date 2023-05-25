@@ -1,40 +1,70 @@
-<mat-toolbar class="app-title">Cadastrar Filme</mat-toolbar>
+<mat-toolbar class="app-title">Register Movie</mat-toolbar>
 <div class="main-div">
-  <mat-card class="center width50" >
+  <mat-card class="center width50">
+    <form [formGroup]="register" (ngSubmit)="save()" (ngReset)="resetForm()">
       <mat-card-content>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Título">
+            <input matInput placeholder="Title*" name="title" formControlName="title">
+            <mat-error *ngIf="(register.touched || register.dirty) && f.title.errors?.required">Title is required</mat-error>
+            <mat-error *ngIf="(register.touched || register.dirty) && f.title.errors?.minlength">Title must be at least 2 characters</mat-error>
+            <mat-error *ngIf="(register.touched || register.dirty) && f.title.errors?.maxlength">Title can be max 256 characters</mat-error>
           </mat-form-field>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Link Foto">
+            <input matInput placeholder="Picture Url" name="pictureUrl" formControlName="pictureUrl">
+            <mat-error *ngIf="(register.touched || register.dirty) && f.pictureUrl.errors?.minlength">Picture Url must be at least 10 characters</mat-error>
           </mat-form-field>
           <mat-form-field class="full-width">
-              <input matInput [matDatepicker]="picker" placeholder="Data de Lançamento">
+              <input matInput 
+                    readonly
+                    [matDatepicker]="picker" 
+                    placeholder="Release Date*"
+                    name="releaseDate" 
+                    formControlName="releaseDate"
+                    (click)="picker.open()">
+              <mat-error *ngIf="(register.touched || register.dirty) && f.releaseDate.errors?.required">Release Date is required</mat-error>      
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-          <mat-form-field class="full-width">
-            <textarea matInput placeholder="Descrição"></textarea>
           </mat-form-field>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Nota IMDb">
+            <textarea matInput placeholder="Description" name="description" formControlName="description"></textarea>
           </mat-form-field>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Link IMDb">
+            <input  matInput 
+                    type="number"
+                    min="0"
+                    max="10"
+                    step="0.1"
+                    placeholder="IMDb Rating*" 
+                    name="rating" 
+                    formControlName="rating">
+            <mat-error *ngIf="(register.touched || register.dirty) && f.rating.errors?.required">Rating is required</mat-error>
+            <mat-error *ngIf="(register.touched || register.dirty) && f.rating.errors?.min">Rating min value is 0</mat-error>
+            <mat-error *ngIf="(register.touched || register.dirty) && f.rating.errors?.max">Rating max value is 10</mat-error>
           </mat-form-field>
           <mat-form-field class="full-width">
-            <mat-select placeholder="Gênero">
-              <mat-option value="Ação">Açao</mat-option>
-              <mat-option value="Aventura">Aventura</mat-option>
-              <mat-option value=">Ficção Científica">Ficção Científica</mat-option>
+            <input matInput placeholder="IMDb Url" name="imdbUrl" formControlName="imdbUrl">
+            <mat-error *ngIf="(register.touched || register.dirty) && f.imdbUrl.errors?.minlength">IMDb Url must be at least 10 characters</mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Genre*" formControlName="genre">
+              <mat-option value="Action">Action</mat-option>
+              <mat-option value="Adventure">Adventure</mat-option>
+              <mat-option value="Comedy">Comedy</mat-option>
+              <mat-option value="Drama">Drama</mat-option>
+              <mat-option value="Fantasy">Fantasy</mat-option>
+              <mat-option value="Horror">Horror</mat-option>
               <mat-option value="Romance">Romance</mat-option>
-              <mat-option value="Terror">Terror</mat-option>
+              <mat-option value="Science Fiction">Science Fiction</mat-option>
+              <mat-option value="Thriller">Thriller</mat-option>
+              <mat-option value="Western">Western</mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-error *ngIf="(register.touched || register.dirty) && f.genre.errors?.required">Genre is required</mat-error>
         </mat-card-content>
         <mat-card-actions>
-          <button color="accent" mat-raised-button>Salvar</button>
-          <button color="warn" mat-raised-button>Cancelar</button>
+          <button type="submit" color="accent" mat-raised-button>Save</button>
+          <button type="reset" color="warn" mat-raised-button>Cancel</button>
         </mat-card-actions>
+    </form>
   </mat-card>
 </div>
