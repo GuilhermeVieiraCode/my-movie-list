@@ -5,13 +5,13 @@
       <mat-card-content>
           <mat-form-field class="full-width">
             <input matInput placeholder="Title*" name="title" formControlName="title">
-            <mat-error *ngIf="(register.touched || register.dirty) && f.title.errors?.required">Title is required</mat-error>
-            <mat-error *ngIf="(register.touched || register.dirty) && f.title.errors?.minlength">Title must be at least 2 characters</mat-error>
-            <mat-error *ngIf="(register.touched || register.dirty) && f.title.errors?.maxlength">Title can be max 256 characters</mat-error>
+            <mat-error *ngIf="validateFields.hasErrorValidate(f.title,'required')">Title is required</mat-error>
+            <mat-error *ngIf="validateFields.hasErrorValidate(f.title,'minlength')">Title must be at least 2 characters</mat-error>
+            <mat-error *ngIf="validateFields.hasErrorValidate(f.title,'maxlength')">Title can be max 256 characters</mat-error>
           </mat-form-field>
           <mat-form-field class="full-width">
             <input matInput placeholder="Picture Url" name="pictureUrl" formControlName="pictureUrl">
-            <mat-error *ngIf="(register.touched || register.dirty) && f.pictureUrl.errors?.minlength">Picture Url must be at least 10 characters</mat-error>
+            <mat-error *ngIf="validateFields.hasErrorValidate(f.pictureUrl, 'minlength')">Picture Url must be at least 10 characters</mat-error>
           </mat-form-field>
           <mat-form-field class="full-width">
               <input matInput 
@@ -21,7 +21,7 @@
                     name="releaseDate" 
                     formControlName="releaseDate"
                     (click)="picker.open()">
-              <mat-error *ngIf="(register.touched || register.dirty) && f.releaseDate.errors?.required">Release Date is required</mat-error>      
+              <mat-error *ngIf="validateFields.hasErrorValidate(f.releaseDate, 'required')">Release Date is required</mat-error>      
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
@@ -37,13 +37,13 @@
                     placeholder="IMDb Rating*" 
                     name="rating" 
                     formControlName="rating">
-            <mat-error *ngIf="(register.touched || register.dirty) && f.rating.errors?.required">Rating is required</mat-error>
-            <mat-error *ngIf="(register.touched || register.dirty) && f.rating.errors?.min">Rating min value is 0</mat-error>
-            <mat-error *ngIf="(register.touched || register.dirty) && f.rating.errors?.max">Rating max value is 10</mat-error>
+            <mat-error *ngIf="validateFields.hasErrorValidate(f.rating, 'required')">Rating is required</mat-error>
+            <mat-error *ngIf="validateFields.hasErrorValidate(f.rating, 'min')">Rating min value is 0</mat-error>
+            <mat-error *ngIf="validateFields.hasErrorValidate(f.rating, 'max')">Rating max value is 10</mat-error>
           </mat-form-field>
           <mat-form-field class="full-width">
             <input matInput placeholder="IMDb Url" name="imdbUrl" formControlName="imdbUrl">
-            <mat-error *ngIf="(register.touched || register.dirty) && f.imdbUrl.errors?.minlength">IMDb Url must be at least 10 characters</mat-error>
+            <mat-error *ngIf="validateFields.hasErrorValidate(f.imdbUrl, 'minlength')">IMDb Url must be at least 10 characters</mat-error>
           </mat-form-field>
           <mat-form-field class="full-width">
             <mat-select placeholder="Genre*" formControlName="genre">
@@ -59,7 +59,7 @@
               <mat-option value="Western">Western</mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-error *ngIf="(register.touched || register.dirty) && f.genre.errors?.required">Genre is required</mat-error>
+          <mat-error *ngIf="validateFields.hasErrorValidate(f.genre, 'required')">Genre is required</mat-error>
         </mat-card-content>
         <mat-card-actions>
           <button type="submit" color="accent" mat-raised-button>Save</button>

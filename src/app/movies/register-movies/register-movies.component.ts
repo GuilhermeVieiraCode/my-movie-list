@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { ValidateFieldsService } from 'src/app/shared/components/fields/validate-fields.service';
 
 @Component({
   selector: 'app-register-movies',
@@ -9,14 +10,15 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class RegisterMoviesComponent implements OnInit{
   register!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, 
+              public validateFields: ValidateFieldsService) { }
 
   get f(){
     return this.register.controls;
   }
 
   ngOnInit() {
-    this.register = this.fb.group({
+    this.register = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(256)]],
       pictureUrl: ['', [Validators.minLength(10)]],
       releaseDate: ['', [Validators.required]],
