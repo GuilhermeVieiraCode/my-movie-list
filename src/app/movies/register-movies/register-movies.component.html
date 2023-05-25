@@ -3,16 +3,14 @@
   <mat-card class="center width50">
     <form [formGroup]="register" (ngSubmit)="save()" (ngReset)="resetForm()">
       <mat-card-content>
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Title*" name="title" formControlName="title">
-            <mat-error *ngIf="validateFields.hasErrorValidate(f.title,'required')">Title is required</mat-error>
-            <mat-error *ngIf="validateFields.hasErrorValidate(f.title,'minlength')">Title must be at least 2 characters</mat-error>
-            <mat-error *ngIf="validateFields.hasErrorValidate(f.title,'maxlength')">Title can be max 256 characters</mat-error>
-          </mat-form-field>
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Picture Url" name="pictureUrl" formControlName="pictureUrl">
-            <mat-error *ngIf="validateFields.hasErrorValidate(f.pictureUrl, 'minlength')">Picture Url must be at least 10 characters</mat-error>
-          </mat-form-field>
+          <app-input-text title="Título*" 
+                          [formGroup]="register"
+                          controlName="title">
+          </app-input-text>
+          <app-input-text title="Picture Url" 
+                          [formGroup]="register"
+                          controlName="pictureUrl">
+          </app-input-text>
           <mat-form-field class="full-width">
               <input matInput 
                     readonly
@@ -25,26 +23,18 @@
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-          <mat-form-field class="full-width">
-            <textarea matInput placeholder="Description" name="description" formControlName="description"></textarea>
-          </mat-form-field>
-          <mat-form-field class="full-width">
-            <input  matInput 
-                    type="number"
-                    min="0"
-                    max="10"
-                    step="0.1"
-                    placeholder="IMDb Rating*" 
-                    name="rating" 
-                    formControlName="rating">
-            <mat-error *ngIf="validateFields.hasErrorValidate(f.rating, 'required')">Rating is required</mat-error>
-            <mat-error *ngIf="validateFields.hasErrorValidate(f.rating, 'min')">Rating min value is 0</mat-error>
-            <mat-error *ngIf="validateFields.hasErrorValidate(f.rating, 'max')">Rating max value is 10</mat-error>
-          </mat-form-field>
-          <mat-form-field class="full-width">
-            <input matInput placeholder="IMDb Url" name="imdbUrl" formControlName="imdbUrl">
-            <mat-error *ngIf="validateFields.hasErrorValidate(f.imdbUrl, 'minlength')">IMDb Url must be at least 10 characters</mat-error>
-          </mat-form-field>
+          <app-input-textarea title="Description" [formGroup]="register" controlName="description">
+          </app-input-textarea>
+          <app-input-number title="IMDb Rating*" 
+                            [formGroup]="register"
+                            controlName="rating"
+                            step="0.1"
+                            >
+          </app-input-number>
+          <app-input-text title="IMDb Url" 
+                          [formGroup]="register"
+                          controlName="imdbUrl">
+          </app-input-text>
           <mat-form-field class="full-width">
             <mat-select placeholder="Genre*" formControlName="genre">
               <mat-option value="Action">Action</mat-option>

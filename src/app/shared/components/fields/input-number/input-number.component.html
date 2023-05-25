@@ -1,0 +1,15 @@
+<div [formGroup]="formGroup">
+    <mat-form-field class="full-width">
+        <input  matInput 
+                type="number"
+                [min]="min"
+                [max]="max"
+                [step]="step"
+                [placeholder]="title" 
+                [name]="controlName"
+                [formControlName]="controlName">
+        <mat-error *ngIf="validateFields.hasErrorValidate(formControl, 'required')">Rating is required</mat-error>
+        <mat-error *ngIf="validateFields.hasErrorValidate(formControl, 'min')">Rating min value is 0</mat-error>
+        <mat-error *ngIf="validateFields.hasErrorValidate(formControl, 'max')">Rating max value is 10</mat-error>
+    </mat-form-field>
+</div>

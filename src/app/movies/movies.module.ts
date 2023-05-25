@@ -4,6 +4,7 @@ import { RegisterMoviesComponent } from './register-movies/register-movies.compo
 import { ListMoviesComponent } from './list-movies/list-movies.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material/material.module';
+import { FieldsModule } from '../shared/components/fields/fields.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MaterialModule } from '../shared/material/material.module';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    FieldsModule
   ]
 })
 export class MoviesModule { }
