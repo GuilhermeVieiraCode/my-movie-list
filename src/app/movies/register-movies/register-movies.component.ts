@@ -9,6 +9,7 @@ import { ValidateFieldsService } from 'src/app/shared/components/fields/validate
 })
 export class RegisterMoviesComponent implements OnInit{
   register!: FormGroup;
+  genres!: Array<string>;
 
   constructor(private formBuilder: FormBuilder, 
               public validateFields: ValidateFieldsService) { }
@@ -27,6 +28,18 @@ export class RegisterMoviesComponent implements OnInit{
       imdbUrl: ['', [Validators.minLength(10)]],
       genre: ['', [Validators.required]]
     });
+
+    this.genres = [
+      'Action', 
+      'Adventure', 
+      'Comedy', 
+      'Drama', 
+      'Fantasy', 
+      'Horror', 
+      'Romance', 
+      'Science Fiction', 
+      'Thriller', 
+      'Western'];
   }
 
   save(): void{

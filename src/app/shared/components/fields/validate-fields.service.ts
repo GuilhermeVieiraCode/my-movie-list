@@ -18,4 +18,9 @@ export class ValidateFieldsService {
   hasError(control : AbstractControl, errorName: string): boolean{
     return control.hasError(errorName);
   }
+
+  lengthValidate(control: AbstractControl, errorName: string): number{
+    const error = control.errors ? control.errors[errorName] : null;
+    return error.requiredLength || error.min || error.max || 0;
+  }
 }

@@ -7,6 +7,7 @@ import { InputTextareaComponent } from './input-textarea/input-textarea.componen
 import { InputSelectComponent } from './input-select/input-select.component';
 import { MaterialModule } from '../../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReplacePipe } from '../../pipes/replace.pipe'
 
 
 
@@ -16,13 +17,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InputNumberComponent,
     InputDateComponent,
     InputTextareaComponent,
-    InputSelectComponent
+    InputSelectComponent,
+    ReplacePipe
   ],
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [
     InputTextComponent,
