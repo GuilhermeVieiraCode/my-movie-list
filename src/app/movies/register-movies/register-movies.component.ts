@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MoviesService } from 'src/app/core/movies.service';
+import { AlertComponent } from 'src/app/shared/components/alert/alert.component';
 import { ValidateFieldsService } from 'src/app/shared/components/fields/validate-fields.service';
+import { Alert } from 'src/app/shared/models/alert';
 import { Movie } from 'src/app/shared/models/movie';
 
 @Component({
@@ -13,9 +17,11 @@ export class RegisterMoviesComponent implements OnInit{
   register!: FormGroup;
   genres!: Array<string>;
 
-  constructor(private formBuilder: FormBuilder, 
+  constructor(public dialog: MatDialog,
               public validateFields: ValidateFieldsService,
-              private moviesService: MoviesService) { }
+              private formBuilder: FormBuilder, 
+              private moviesService: MoviesService,
+              private router: Router) { }
 
   get f(){
     return this.register.controls;
@@ -46,24 +52,44 @@ export class RegisterMoviesComponent implements OnInit{
   }
 
   submit(): void{
-    this.register.markAllAsTouched;
+    this.register.markAllAsTouched();
     if(this.register.invalid){
       return;
     }
 
     const movie = this.register.getRawValue() as Movie;
     this.save(movie);
-    this.resetForm();
   }
 
   resetForm(): void{
-    this.register.reset;
+    this.register.reset();
   }
 
   private save(movie: Movie): void{
     this.moviesService.save(movie).subscribe({
-      next: () => console.log('Saved with success'),
-      error: () => console.log('Error')
+      next: () => {
+        const dialogRef = this.dialog.open(AlertComponent , {
+          data: {
+            btnSuccess: 'Go To Movie List',
+            btnCancel: 'Register New Movie',
+            colorBtnCancel: 'primary',
+            hasCloseButton: true
+          } as Alert
+        });
+        dialogRef.afterClosed().subscribe((option : boolean) => {
+          option ? this.router.navigateByUrl('movies') : this.resetForm();
+        });
+      },
+      error: () => {
+        const dialogRef = this.dialog.open(AlertComponent , {
+          data: {
+            title: 'Error',
+            description: 'A error ocurred while saving the movie, try again later',
+            colorBtnSuccess: 'warn',
+            btnSuccess: 'Close'
+          } as Alert
+        });
+      }
     })
   }
 }

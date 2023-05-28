@@ -10,12 +10,14 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MaterialModule } from './shared/material/material.module';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertComponent } from './shared/components/alert/alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     TableComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

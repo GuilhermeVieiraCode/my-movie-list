@@ -2,13 +2,23 @@
   "movies": [
     {
       "title": "Kill Bill: Vol. 1",
-      "pictureUrl": "https://www.google.com.br/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FKill-Bill-V-1-Movie-Poster%2Fdp%2FB004LHC3LM&psig=AOvVaw3onnhYNhIuwoynzj7yIRq8&ust=1685379969676000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPCAkOW_mP8CFQAAAAAdAAAAABAE",
+      "pictureUrl": "https://m.media-amazon.com/images/M/MV5BNzM3NDFhYTAtYmU5Mi00NGRmLTljYjgtMDkyODQ4MjNkMGY2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg",
       "releaseDate": "2003-10-24T02:00:00.000Z",
       "description": "After awakening from a four-year coma, a former assassin wreaks vengeance on the team of assassins who betrayed her.",
       "rating": 8.2,
       "imdbUrl": "https://www.imdb.com/title/tt0266697/?ref_=nv_sr_srsg_4_tt_7_nm_0_q_kill",
       "genre": "Action",
       "id": 1
+    },
+    {
+      "title": "Alien",
+      "pictureUrl": "https://m.media-amazon.com/images/M/MV5BOGQzZTBjMjQtOTVmMS00NGE5LWEyYmMtOGQ1ZGZjNmRkYjFhXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_FMjpg_UX1000_.jpg",
+      "releaseDate": "1979-10-21T03:00:00.000Z",
+      "description": "The crew of a commercial spacecraft encounter a deadly lifeform after investigating an unknown transmission.",
+      "rating": 8.5,
+      "imdbUrl": "https://www.imdb.com/title/tt0078748/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_alien",
+      "genre": "Science Fiction",
+      "id": 2
     }
   ]
 }
