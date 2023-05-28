@@ -9,6 +9,7 @@ import { TableComponent } from './shared/components/table/table.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MaterialModule } from './shared/material/material.module';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     LayoutModule,
     MaterialModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt' }],
   bootstrap: [AppComponent]

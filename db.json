@@ -1,19 +1,14 @@
 {
-  "posts": [
+  "movies": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Kill Bill: Vol. 1",
+      "pictureUrl": "https://www.google.com.br/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FKill-Bill-V-1-Movie-Poster%2Fdp%2FB004LHC3LM&psig=AOvVaw3onnhYNhIuwoynzj7yIRq8&ust=1685379969676000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPCAkOW_mP8CFQAAAAAdAAAAABAE",
+      "releaseDate": "2003-10-24T02:00:00.000Z",
+      "description": "After awakening from a four-year coma, a former assassin wreaks vengeance on the team of assassins who betrayed her.",
+      "rating": 8.2,
+      "imdbUrl": "https://www.imdb.com/title/tt0266697/?ref_=nv_sr_srsg_4_tt_7_nm_0_q_kill",
+      "genre": "Action",
+      "id": 1
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
