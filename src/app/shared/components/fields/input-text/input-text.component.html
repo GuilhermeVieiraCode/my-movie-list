@@ -1,7 +1,7 @@
 <div [formGroup]="formGroup">
     <mat-form-field class="full-width">
+        <mat-label>{{title | replace: '*': ''}}</mat-label>
         <input matInput 
-               [placeholder]="title" 
                [name]="controlName" 
                [formControlName]="controlName">
         <mat-error *ngIf="validateFields.hasErrorValidate(formControl,'required')">Title is required</mat-error>

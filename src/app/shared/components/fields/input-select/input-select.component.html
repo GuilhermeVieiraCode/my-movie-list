@@ -1,6 +1,7 @@
 <div [formGroup]="formGroup">
     <mat-form-field class="full-width">
-        <mat-select [placeholder]="title" [formControlName]="controlName">
+        <mat-label>{{title | replace: '*': ''}}</mat-label>
+        <mat-select [formControlName]="controlName">
           <mat-option *ngFor="let option of options" [value]="option">{{ option }}</mat-option>
         </mat-select>
         <mat-error *ngIf="validateFields.hasErrorValidate(formControl, 'required')">Genre is required</mat-error>
