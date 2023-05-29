@@ -19,6 +19,26 @@
       "imdbUrl": "https://www.imdb.com/title/tt0078748/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_alien",
       "genre": "Science Fiction",
       "id": 2
+    },
+    {
+      "title": "John Wick",
+      "pictureUrl": "https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_FMjpg_UX1000_.jpg",
+      "releaseDate": "2014-11-13T02:00:00.000Z",
+      "description": "An ex-hitman comes out of retirement to track down the gangsters who killed his dog and stole his car.",
+      "rating": 7.4,
+      "imdbUrl": "https://www.imdb.com/title/tt2911666/?ref_=nv_sr_srsg_3_tt_7_nm_1_q_john%2520wi",
+      "genre": "Action",
+      "id": 3
+    },
+    {
+      "title": "Hereditary",
+      "pictureUrl": "https://m.media-amazon.com/images/M/MV5BOTU5MDg3OGItZWQ1Ny00ZGVmLTg2YTUtMzBkYzQ1YWIwZjlhXkEyXkFqcGdeQXVyNTAzMTY4MDA@._V1_FMjpg_UX1000_.jpg",
+      "releaseDate": "2018-06-14T03:00:00.000Z",
+      "description": "A grieving family is haunted by tragic and disturbing occurrences.",
+      "rating": 7.3,
+      "imdbUrl": "https://www.imdb.com/title/tt7784604/?ref_=nv_sr_srsg_0_tt_4_nm_4_q_heredi",
+      "genre": "Horror",
+      "id": 4
     }
   ]
 }
