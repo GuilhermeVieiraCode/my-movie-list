@@ -16,10 +16,15 @@ export class MoviesService {
     return this.httpClient.post<Movie>(url, movie);
   }
 
-  list(page: number, quantity: number): Observable<Movie[]>{
+  list(page: number, quantity: number, text: string, genre: string): Observable<Movie[]>{
     let httpParams = new HttpParams();
     httpParams = httpParams.set('_page', page.toString());
     httpParams = httpParams.set('_limit', quantity.toString());
+    httpParams = httpParams.set('_sort', 'title');
+    httpParams = httpParams.set('_order', 'asc');
+    if(text) httpParams = httpParams.set('q', text);
+    if(genre) httpParams = httpParams.set('genre', genre);
+
     return this.httpClient.get<Movie[]>(url, {params: httpParams});
   }
 }

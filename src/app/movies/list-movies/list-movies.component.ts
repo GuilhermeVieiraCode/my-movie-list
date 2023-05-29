@@ -12,6 +12,8 @@ export class ListMoviesComponent implements OnInit{
   movies: Movie[] = [];
   pageNumber = 0;
   readonly quantityPerPage = 4;
+  text!: string;
+  genre!: string;
   filtersList!: FormGroup;
   genres!: string[];
 
@@ -23,6 +25,16 @@ export class ListMoviesComponent implements OnInit{
     this.filtersList = this.formBuilder.group({
       text: [''],
       genre: ['']
+    });
+
+    this.filtersList.get('text')?.valueChanges.subscribe((val: string) => {
+      this.text = val;
+      this.resetList();
+    });
+
+    this.filtersList.get('genre')?.valueChanges.subscribe((val: string) => {
+      this.genre = val;
+      this.resetList();
     });
 
     this.genres = [
@@ -37,7 +49,7 @@ export class ListMoviesComponent implements OnInit{
     'Thriller', 
     'Western'];
 
-    this.listMovies();
+    this.resetList();
   }
 
   onScroll(): void {
@@ -46,9 +58,15 @@ export class ListMoviesComponent implements OnInit{
 
   private listMovies(): void{
     this.pageNumber++;
-    this.moviesService.list(this.pageNumber, this.quantityPerPage).subscribe((movies: Movie[]) => {
+    this.moviesService.list(this.pageNumber, this.quantityPerPage, this.text, this.genre).subscribe((movies: Movie[]) => {
       this.movies.push(...movies);
     });
+  }
+
+  private resetList(): void{
+    this.pageNumber = 0;
+    this.movies = [];
+    this.listMovies();
   }
 
 }
