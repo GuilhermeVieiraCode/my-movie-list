@@ -39,6 +39,46 @@
       "imdbUrl": "https://www.imdb.com/title/tt7784604/?ref_=nv_sr_srsg_0_tt_4_nm_4_q_heredi",
       "genre": "Horror",
       "id": 4
+    },
+    {
+      "title": "Mad Max: Fury Road",
+      "pictureUrl": "https://m.media-amazon.com/images/M/MV5BN2EwM2I5OWMtMGQyMi00Zjg1LWJkNTctZTdjYTA4OGUwZjMyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg",
+      "releaseDate": "2015-05-15T03:00:00.000Z",
+      "description": "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshiper and a drifter named Max.",
+      "rating": 8.1,
+      "imdbUrl": "https://www.imdb.com/title/tt1392190/?ref_=nv_sr_srsg_6_tt_7_nm_1_q_mad%2520max",
+      "genre": "Action",
+      "id": 5
+    },
+    {
+      "title": "The Dark Knight",
+      "pictureUrl": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg",
+      "releaseDate": "2008-07-24T03:00:00.000Z",
+      "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+      "rating": 9,
+      "imdbUrl": "https://www.imdb.com/title/tt0468569/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_dark%2520kn",
+      "genre": "Action",
+      "id": 6
+    },
+    {
+      "title": "Once Upon a Time in the West",
+      "pictureUrl": "https://m.media-amazon.com/images/M/MV5BODQ3NDExOGYtMzI3Mi00NWRlLTkwNjAtNjc4MDgzZGJiZTA1XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_FMjpg_UX1000_.jpg",
+      "releaseDate": "1970-03-31T03:00:00.000Z",
+      "description": "A mysterious stranger with a harmonica joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad.",
+      "rating": 8.5,
+      "imdbUrl": "https://www.imdb.com/title/tt0064116/?ref_=nv_sr_srsg_7_tt_8_nm_0_q_once%2520u",
+      "genre": "Western",
+      "id": 7
+    },
+    {
+      "title": "Ghost in the Shell",
+      "pictureUrl": "https://m.media-amazon.com/images/M/MV5BYWRiYjQyOGItNzQ1Mi00MGI1LWE3NjItNTg1ZDQwNjUwNDM2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX1000_.jpg",
+      "releaseDate": "1995-11-18T02:00:00.000Z",
+      "description": "A cyborg policewoman and her partner hunt a mysterious and powerful hacker called the Puppet Master.",
+      "rating": 7.9,
+      "imdbUrl": "https://www.imdb.com/title/tt0113568/?ref_=nv_sr_srsg_3_tt_8_nm_0_q_ghost%2520in",
+      "genre": "Science Fiction",
+      "id": 8
     }
   ]
 }
