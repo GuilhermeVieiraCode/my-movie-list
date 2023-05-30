@@ -4,15 +4,17 @@
 @import '@angular/material/theming';
 
 $default-theme-primary: mat-palette($mat-cyan, 500, 100, 900);
-$default-theme-accent: mat-palette($mat-orange, 800, 300, 200);
+$default-theme-accent: mat-palette($mat-yellow, 800, 300, 200);
 $default-theme-warn: mat-palette($mat-red, A700);
 
 // create theme (use mat-dark-theme for themes with dark backgrounds)
-$default-theme: mat-dark-theme(
-    $default-theme-primary,
-    $default-theme-accent,
-    $default-theme-warn
-);
+$default-theme: mat-dark-theme((
+    color:(
+      primary: $default-theme-primary,
+      accent: $default-theme-accent,
+      warn: $default-theme-warn
+    ) 
+));
 
 @include angular-material-theme($default-theme);
 

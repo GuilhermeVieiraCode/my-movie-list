@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
-import { TableComponent } from './shared/components/table/table.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MaterialModule } from './shared/material/material.module';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
@@ -16,7 +15,6 @@ import { AlertComponent } from './shared/components/alert/alert.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    TableComponent,
     AlertComponent,
   ],
   imports: [
