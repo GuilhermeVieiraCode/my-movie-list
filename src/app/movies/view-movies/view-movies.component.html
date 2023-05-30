@@ -1,0 +1,18 @@
+<mat-list *ngIf="movie; else nomovie">
+    <mat-list-item>Title: {{ movie.title }}</mat-list-item>
+    <mat-list-item>Release Date: {{ movie.releaseDate | date: 'dd/MM/yyyy' }}</mat-list-item>
+    <mat-list-item>Genre: {{ movie.genre }}</mat-list-item>
+    <mat-list-item>Description{{ movie.description }}</mat-list-item>
+    <mat-list-item>IMDb Rating: <a [href]="movie.imdbUrl" target="_blank">{{ movie.rating }}</a></mat-list-item>
+    <img mat-card-image class="view-image" [src]="movie.pictureUrl || noPicture">
+</mat-list>
+<mat-card>
+    <mat-card-actions>
+        <button type="submit" color="accent" mat-raised-button>Edit</button>
+        <button type="reset" color="warn" mat-raised-button (click)="delete()">Delete</button>
+    </mat-card-actions>
+</mat-card>
+
+<ng-template #nomovie>
+    <h1 class="full-width main-div">No movie found</h1>
+</ng-template>

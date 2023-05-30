@@ -5,7 +5,7 @@ import { Movie } from '../shared/models/movie';
 import { ConfigParams } from '../shared/models/config-params';
 import { ConfigParamsService } from './config-params.service';
 
-const url = 'http://localhost:3000/movies';
+const url = 'http://localhost:3000/movies/';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +23,13 @@ export class MoviesService {
     let httpParams = this.configParamsService.configParams(config);
 
     return this.httpClient.get<Movie[]>(url, {params: httpParams});
+  }
+
+  view(id: number): Observable<Movie>{
+    return this.httpClient.get<Movie>(url + id);
+  }
+
+  delete(id: number): Observable<void>{
+    return this.httpClient.delete<void>(url + id);
   }
 }

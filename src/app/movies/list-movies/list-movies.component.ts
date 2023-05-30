@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { debounceTime } from 'rxjs';
 import { MoviesService } from 'src/app/core/movies.service';
 import { ConfigParams } from 'src/app/shared/models/config-params';
@@ -11,6 +12,7 @@ import { Movie } from 'src/app/shared/models/movie';
   styleUrls: ['./list-movies.component.scss']
 })
 export class ListMoviesComponent implements OnInit{
+
   movies: Movie[] = [];
   config: ConfigParams = {
     page: 0,
@@ -22,7 +24,8 @@ export class ListMoviesComponent implements OnInit{
   readonly noPicture = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png";
 
   constructor(private moviesService: MoviesService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private router: Router) { }
 
   ngOnInit() {
     this.filtersList = this.formBuilder.group({
@@ -72,6 +75,10 @@ export class ListMoviesComponent implements OnInit{
     this.config.page = 0;
     this.movies = [];
     this.listMovies();
+  }
+
+  open(id: number|undefined): void {
+    this.router.navigateByUrl('/movies/' + id);
   }
 
 }
