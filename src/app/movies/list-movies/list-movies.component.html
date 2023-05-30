@@ -24,12 +24,17 @@
     *ngIf="movies.length; else nomovie">
 
   <mat-card class="home-card" *ngFor="let movie of movies">
-    <mat-card-header>
+    <span class="movie-rating" color="accent">{{ movie.rating }}</span>
+    <img mat-card-image class="card-image" [src]="movie.pictureUrl || noPicture">
+    <p class="movie-title">{{ movie.title }}
+        <span class="movie-year">{{ movie.releaseDate | date: 'YYYY' }}</span>
+    </p>
+    
+    <!-- <mat-card-content>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{ movie.title }}</mat-card-title>
       <mat-card-subtitle>{{ movie.genre }}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="movie.pictureUrl || noPicture">
+    </mat-card-content>
     <mat-card-content>
       <p class="break-line">
         {{ movie.description || "No description available" }}
@@ -38,6 +43,7 @@
     <mat-card-actions>
       <button color="accent" mat-raised-button (click)="open(movie.id)">OPEN</button>
     </mat-card-actions>
+     -->
   </mat-card>
 </div>
 
