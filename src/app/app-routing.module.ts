@@ -21,12 +21,23 @@ const routes: Routes = [
       },
       {
         path: 'register',
-        component: RegisterMoviesComponent,
-        pathMatch: 'full'
+        children: [
+          {
+            path: '',
+            component: RegisterMoviesComponent,
+          },
+          {
+            path: ':id',
+            component: RegisterMoviesComponent,
+            pathMatch: 'full'
+          }
+          
+        ]
       },
       {
         path: ':id',
         component: ViewMoviesComponent,
+        pathMatch: 'full'
       },
     ]
   },

@@ -35,6 +35,10 @@ export class ViewMoviesComponent implements OnInit{
     })
   }
 
+  edit(): void{
+    this.router.navigateByUrl('/movies/register/' + this.id);
+  }
+
   delete(): void {
     const dialogRef = this.dialog.open(AlertComponent , {
       data: {
