@@ -24,11 +24,20 @@
     *ngIf="movies.length; else nomovie">
 
   <mat-card class="home-card" *ngFor="let movie of movies">
-    <span class="movie-rating" color="accent">{{ movie.rating }}</span>
+    <div class="movie-rating">
+      <img width="24" height="24" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+      <div>
+        <span class="rating-number" color="accent">{{ movie.rating | number: '1.1-2' }}</span>
+        <span>/10</span>
+      </div>
+    </div>
     <img mat-card-image class="card-image" [src]="movie.pictureUrl || noPicture">
     <p class="movie-title">{{ movie.title }}
         <span class="movie-year">{{ movie.releaseDate | date: 'YYYY' }}</span>
     </p>
+    <mat-card-actions>
+      <button class="card-button" color="accent" mat-raised-button (click)="open(movie.id)">OPEN</button>
+    </mat-card-actions>
     
     <!-- <mat-card-content>
       <div mat-card-avatar class="example-header-image"></div>
