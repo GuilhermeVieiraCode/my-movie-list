@@ -1,6 +1,51 @@
+.movie-info{
+    display: flex;
+    padding: 4rem;
+}
+
+.movie-details{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: large;
+    padding-left: 4rem;
+}
+
+.movie-details span{
+    margin-bottom: 16px;
+}
+
+.movie-details span a{
+    color: white;
+}
+
+.movie-details span a:hover{
+    text-decoration: underline;
+}
+
+.movie-buttons{
+    margin-top: 64px;
+
+    button{
+        margin-right: 8px;
+    }
+}
+
 .view-image{
-    width: 182px;
-    height: 268px;
+    width: 382px;
+    height: 548px;
     margin: auto;
     display: block;
+}
+
+@media screen and (max-width: 780px) {
+    .movie-info{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .movie-details{
+        margin-top: 24px;
+    }
 }
